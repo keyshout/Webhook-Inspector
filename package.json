@@ -2,7 +2,7 @@
   "name": "webhook-inspector",
   "displayName": "Webhook Inspector",
   "description": "Catch, inspect, and replay webhooks without leaving VS Code. Fully local, no data leaves your machine.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "keyshout",
   "license": "MIT",
   "repository": {
@@ -22,10 +22,13 @@
     "http",
     "debug",
     "inspector",
+    "webhook inspector",
     "replay",
     "stripe",
     "github",
     "shopify",
+    "api",
+    "rest",
     "proxy",
     "localhost"
   ],

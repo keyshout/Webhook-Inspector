@@ -4,7 +4,9 @@
 
 ![Webhook Inspector Demo](https://raw.githubusercontent.com/keyshout/Webhook-Inspector/main/resources/demo.gif)
 
-Webhook Inspector is a fully local HTTP proxy that captures incoming webhook requests, displays them in a rich UI, and lets you resend them with one click. No data leaves your machine -- everything runs on localhost.
+Webhook Inspector is a local HTTP proxy that captures incoming webhook requests, displays them in a rich UI, and lets you resend them with one click. 
+
+**Freemium Model:** The core inspection and replay features are completely free to use. Advanced workflow features like export and cURL generation are available with a one-time Pro license. No data leaves your machine -- everything runs on localhost.
 
 ## Features
 
