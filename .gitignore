@@ -1,0 +1,39 @@
+# ── Source Code (EXCLUDE from public repo) ──
+src/
+webview-ui/src/
+webview-ui/public/
+webview-ui/vite.config.ts
+webview-ui/tsconfig.json
+webview-ui/tsconfig.node.json
+webview-ui/tailwind.config.js
+webview-ui/postcss.config.js
+webview-ui/index.html
+
+# ── Dependencies & Lockfiles ──
+node_modules/
+webview-ui/node_modules/
+package-lock.json
+yarn.lock
+webview-ui/package-lock.json
+webview-ui/yarn.lock
+webview-ui/package.json
+
+# ── Build config (exclude) ──
+tsconfig.json
+.eslintrc*
+.vscode/
+.vscode-test/
+
+# ── Artifacts ──
+*.vsix
+*.log
+.env
+.env.*
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── Source maps (don't publish) ──
+**/*.map
+**/*.map.js

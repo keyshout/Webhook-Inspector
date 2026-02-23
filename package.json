@@ -1,0 +1,122 @@
+{
+  "name": "webhook-inspector",
+  "displayName": "Webhook Inspector",
+  "description": "Catch, inspect, and replay webhooks without leaving VS Code. Fully local, no data leaves your machine.",
+  "version": "0.1.0",
+  "publisher": "keyshout",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keyshout/Webhook-Inspector.git"
+  },
+  "icon": "resources/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "keywords": [
+    "webhook",
+    "http",
+    "debug",
+    "inspector",
+    "replay",
+    "stripe",
+    "github",
+    "shopify",
+    "proxy",
+    "localhost"
+  ],
+  "galleryBanner": {
+    "color": "#1e1e2e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "webhookInspector.startProxy",
+        "title": "Webhook Inspector: Start Proxy",
+        "icon": "$(debug-start)"
+      },
+      {
+        "command": "webhookInspector.stopProxy",
+        "title": "Webhook Inspector: Stop Proxy",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "webhookInspector.openPanel",
+        "title": "Webhook Inspector: Open Panel",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "webhookInspector.clearHistory",
+        "title": "Webhook Inspector: Clear History",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "webhookInspector.resetLicense",
+        "title": "Webhook Inspector: Reset License"
+      }
+    ],
+    "configuration": {
+      "title": "Webhook Inspector",
+      "properties": {
+        "webhookInspector.listenPort": {
+          "type": "number",
+          "default": 3001,
+          "description": "Port number the proxy listens on",
+          "minimum": 1024,
+          "maximum": 65535
+        },
+        "webhookInspector.forwardUrl": {
+          "type": "string",
+          "default": "http://localhost:3000",
+          "description": "Target URL to forward incoming requests to"
+        },
+        "webhookInspector.forwardTimeout": {
+          "type": "number",
+          "default": 30000,
+          "description": "Timeout for forwarded requests (milliseconds)",
+          "minimum": 5000,
+          "maximum": 120000
+        },
+        "webhookInspector.maxEntries": {
+          "type": "number",
+          "default": 200,
+          "description": "Maximum number of requests kept in memory",
+          "minimum": 10,
+          "maximum": 1000
+        },
+        "webhookInspector.maxBodySize": {
+          "type": "number",
+          "default": 5242880,
+          "description": "Maximum body size in bytes. Default: 5MB",
+          "minimum": 1048576,
+          "maximum": 52428800
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild:bundle",
+    "esbuild:bundle": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --target=node18 --minify --sourcemap=external --legal-comments=none",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "esbuild": "^0.27.3",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+}
